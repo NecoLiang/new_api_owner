@@ -31,3 +31,7 @@ data/
 .gopath
 
 token_estimator_test.go
+# server-local runtime state (not templates)
+deploy/.env
+deploy/data/
+deploy/mysql-data/
