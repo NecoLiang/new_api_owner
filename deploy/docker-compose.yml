@@ -31,7 +31,9 @@ services:
     container_name: new-api
     restart: always
     ports:
-      - "${NEW_API_PORT:-38188}:3000"
+      # Default: bind only to localhost so traffic must go through Caddy/HTTPS.
+      # Set NEW_API_BIND=0.0.0.0 in .env to expose directly (not recommended in prod).
+      - "${NEW_API_BIND:-127.0.0.1}:${NEW_API_PORT:-38188}:3000"
     volumes:
       - ./data:/data
     environment:
